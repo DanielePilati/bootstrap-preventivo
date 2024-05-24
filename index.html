@@ -144,6 +144,7 @@
                   >Codice Promozionale (opzionale)</label
                 >
                 <input type="name" class="form-control" id="promo-code" />
+                <div class="form-text" id="wrong-code"></div>
               </div>
               <!-- /promo code-->
               <!-- privacy check-->
@@ -168,8 +169,12 @@
               </div>
               <!-- submit button-->
               <!-- final price-->
-              <div class="col-12 col-md-6 text-center p-4 d-none">
+              <div
+                id="price-banner"
+                class="col-12 col-md-6 text-center p-4 d-none"
+              >
                 <h4>Prezzo finale</h4>
+                <h3 id="final-price"></h3>
               </div>
               <!-- //final price-->
             </form>

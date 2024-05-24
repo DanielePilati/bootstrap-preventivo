@@ -1,8 +1,9 @@
 "use strict";
 
-//Quando l’utente fa click sul bottone submit del form, il sito deve calcolare l’ammontare del preventivo per le ore di lavoro richieste.
+//Quando l’utente fa click sul bottone submit del form
+//il sito deve calcolare l’ammontare del preventivo per le ore di lavoro richieste.
 
-// individuo il form nell documento html
+// individuo il form nel documento html
 const form = document.querySelector("#preventive-form");
 // Supponiamo per semplicità che ogni progetto richieda lo stesso numero di ore di lavoro(es: 10 ore).
 const workTime = 10;
@@ -14,8 +15,14 @@ const rate = [20.5, 15.3, 33.6];
 //L’utente potrebbe decidere di utilizzare un codice promozionale tra i seguenti: YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24.
 const validCodes = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 const userCode = document.querySelector("#promo-code");
-// individuo la selection nell documento html
+// individuo la selection nel documento html
 const selection = document.querySelector("#selection-input");
+// individuo il div del prezzo da visualizzare nel documento html
+const priceBanner = document.querySelector("#price-banner");
+// individuo l'elemento del prezzo da popolare nel documento html
+const priceToUI = document.querySelector("#final-price");
+// individuo l'elemento del messaggio "codice sbagliato" da popolare nel documento html
+const wrongCode = document.querySelector("#wrong-code");
 
 // creo un listner che esegue una funzione qundo viene premuto il bottone
 form.addEventListener("submit", (event) => {
@@ -23,15 +30,18 @@ form.addEventListener("submit", (event) => {
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
   let finalPrice = workTime * rate[selection.value];
   console.log(finalPrice);
-  //Se l’utente inserisce un codice promozionale valido, ha diritto ad uno sconto del 25% sul prezzo finale.
+  //Se l’utente inserisce un codice promozionale valido
   if (validCodes.includes(userCode.value)) {
-    console.log("il codice è corretto");
+    // ha diritto ad uno sconto del 25% sul prezzo finale.
     finalPrice -= (25 * finalPrice) / 100;
     //Se il codice inserito non è valido,
   } else {
-    //il sito deve informare l’utente che il codice non è valido. // il prezzo finale viene calcolato senza applicare sconti
-    console.log("il codice non è corretto");
+    //il sito deve informare l’utente che il codice non è valido.
+    wrongCode.innerHTML = `il codice "${userCode.value}" non è valido`;
+    //il prezzo finale viene visualizzato senza applicare sconti
   }
+  //visualizzo il div del prezzo nel documento html
+  priceBanner.classList.remove("d-none");
   //Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” (con 2 decimali e il simbolo dell’euro).
-  console.log(finalPrice.toFixed(2));
+  priceToUI.innerHTML = `€ ${finalPrice.toFixed(2)}`;
 });
