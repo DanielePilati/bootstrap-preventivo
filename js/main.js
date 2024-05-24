@@ -14,14 +14,24 @@ const rate = [20.5, 15.3, 33.6];
 //L’utente potrebbe decidere di utilizzare un codice promozionale tra i seguenti: YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24.
 const validCodes = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 const userCode = document.querySelector("#promo-code");
-
 // individuo la selection nell documento html
 const selection = document.querySelector("#selection-input");
 
 // creo un listner che esegue una funzione qundo viene premuto il bottone
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(selection.value);
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
-  // let price = workTime * tariffa;
+  let finalPrice = workTime * rate[selection.value];
+  console.log(finalPrice);
+  //Se l’utente inserisce un codice promozionale valido, ha diritto ad uno sconto del 25% sul prezzo finale.
+  if (validCodes.includes(userCode.value)) {
+    console.log("il codice è corretto");
+    finalPrice -= (25 * finalPrice) / 100;
+    //Se il codice inserito non è valido,
+  } else {
+    //il sito deve informare l’utente che il codice non è valido. // il prezzo finale viene calcolato senza applicare sconti
+    console.log("il codice non è corretto");
+  }
+  //Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” (con 2 decimali e il simbolo dell’euro).
+  console.log(finalPrice.toFixed(2));
 });
