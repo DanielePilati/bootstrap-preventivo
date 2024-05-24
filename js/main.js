@@ -28,8 +28,6 @@ const wrongCode = document.querySelector("#wrong-code");
 // creo un listner che esegue una funzione qundo viene premuto il bottone
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  //resetto il messaggio del codice errato
-  wrongCode.innerHTML = "";
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
   let finalPrice = workTime * rate[selection.value];
   //Se l’utente ha inserito un codice promozionale
