@@ -27,19 +27,24 @@ const wrongCode = document.querySelector("#wrong-code");
 // creo un listner che esegue una funzione qundo viene premuto il bottone
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  //resetto il messaggio del codice errato
+  wrongCode.innerHTML = "";
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
   let finalPrice = workTime * rate[selection.value];
-  console.log(finalPrice);
-  //Se l’utente inserisce un codice promozionale valido
-  if (validCodes.includes(userCode.value)) {
-    // ha diritto ad uno sconto del 25% sul prezzo finale.
-    finalPrice -= (25 * finalPrice) / 100;
-    //Se il codice inserito non è valido,
-  } else {
-    //il sito deve informare l’utente che il codice non è valido.
-    wrongCode.innerHTML = `il codice "${userCode.value}" non è valido`;
-    //il prezzo finale viene visualizzato senza applicare sconti
+  //Se l’utente ha inserito un codice promozionale
+  if (userCode.value !== "") {
+    //Se l’utente inserisce un codice promozionale valido
+    if (validCodes.includes(userCode.value)) {
+      // ha diritto ad uno sconto del 25% sul prezzo finale.
+      finalPrice -= (25 * finalPrice) / 100;
+      //Se il codice inserito non è valido,
+    } else {
+      //il sito deve informare l’utente che il codice non è valido.
+      wrongCode.innerHTML = `il codice "${userCode.value}" non è valido`;
+      //il prezzo finale viene visualizzato senza applicare sconti
+    }
   }
+
   //visualizzo il div del prezzo nel documento html
   priceBanner.classList.remove("d-none");
   //Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” (con 2 decimali e il simbolo dell’euro).
