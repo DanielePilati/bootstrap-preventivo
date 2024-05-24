@@ -19,8 +19,9 @@ const userCode = document.querySelector("#promo-code");
 const selection = document.querySelector("#selection-input");
 // individuo il div del prezzo da visualizzare nel documento html
 const priceBanner = document.querySelector("#price-banner");
-// individuo l'elemento del prezzo da popolare nel documento html
-const priceToUI = document.querySelector("#final-price");
+// individuo gli elementi del prezzo da popolare nel documento html
+const priceIntUI = document.querySelector("#price-int");
+const priceFloatsUI = document.querySelector("#price-floats");
 // individuo l'elemento del messaggio "codice sbagliato" da popolare nel documento html
 const wrongCode = document.querySelector("#wrong-code");
 
@@ -36,7 +37,7 @@ form.addEventListener("submit", (event) => {
     //Se l’utente inserisce un codice promozionale valido
     if (validCodes.includes(userCode.value)) {
       // ha diritto ad uno sconto del 25% sul prezzo finale.
-      finalPrice -= (25 * finalPrice) / 100;
+      finalPrice -= ((25 * finalPrice) / 100).toFixed(2); //con 2 decimali
       //Se il codice inserito non è valido,
     } else {
       //il sito deve informare l’utente che il codice non è valido.
@@ -44,9 +45,8 @@ form.addEventListener("submit", (event) => {
       //il prezzo finale viene visualizzato senza applicare sconti
     }
   }
-
   //visualizzo il div del prezzo nel documento html
   priceBanner.classList.remove("d-none");
-  //Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” (con 2 decimali e il simbolo dell’euro).
-  priceToUI.innerHTML = `€ ${finalPrice.toFixed(2)}`;
+  //stampo il prezzo e il simbolo dell’euro
+  priceIntUI.innerHTML = `€ ${finalPrice}`;
 });
