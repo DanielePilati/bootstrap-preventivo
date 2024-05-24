@@ -35,7 +35,7 @@ form.addEventListener("submit", (event) => {
     //Se l’utente inserisce un codice promozionale valido
     if (validCodes.includes(userCode.value)) {
       // ha diritto ad uno sconto del 25% sul prezzo finale.
-      finalPrice -= ((25 * finalPrice) / 100).toFixed(2); //con 2 decimali
+      finalPrice -= (25 * finalPrice) / 100; //con 2 decimali
       //Se il codice inserito non è valido,
     } else {
       //il sito deve informare l’utente che il codice non è valido.
@@ -46,5 +46,5 @@ form.addEventListener("submit", (event) => {
   //visualizzo il div del prezzo nel documento html
   priceBanner.classList.remove("d-none");
   //stampo il prezzo e il simbolo dell’euro
-  priceIntUI.innerHTML = `€ ${finalPrice}`;
+  priceIntUI.innerHTML = `€ ${finalPrice.toFixed(2)}`;
 });
