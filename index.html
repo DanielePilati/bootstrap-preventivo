@@ -68,96 +68,113 @@
             </div>
             <!-- /description-->
             <!-- form -->
-            <form id="calcola-preventivo" action="" method="GET">
-              <div class="row mb-5">
-                <!-- input name-->
-                <div class="col-12 mb-3">
-                  <label for="name-input" class="form-label">Nome</label>
-                  <input type="name" class="form-control" id="name-input" />
-                </div>
-                <!-- /input name-->
-                <!-- input surname-->
-                <div class="col-12 mb-3">
-                  <label for="surname-input" class="form-label">Cognome</label>
-                  <input
-                    type="surname"
-                    class="form-control"
-                    id="surname-input"
-                  />
-                </div>
-                <!-- /input surname-->
-                <!-- input email-->
-                <div class="col-12 mb-3">
-                  <label for="email-input" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email-input" />
-                </div>
-                <!-- /input email-->
-                <!-- input selection-->
-                <div class="col-12 mb-3">
-                  <label for="selection-input" class="form-label"
-                    >Tipo di Lavoro</label
-                  >
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                    id="selection-input"
-                  >
-                    <option value="0">Seleziona il tipo di lavoro</option>
-                    <option value="1">Backed Development</option>
-                    <option value="2">Frontend Development</option>
-                    <option value="3">Project Analysis</option>
-                  </select>
-                </div>
-                <!-- /input selection-->
-                <!-- input text note-->
-                <div class="col-12 mb-3">
-                  <label for="text-area" class="form-label"
-                    >Inserisci Note</label
-                  >
-                  <div class="form-floating mb-3">
-                    <textarea
-                      class="form-control"
-                      placeholder="Leave a comment here"
-                      id="text-area"
-                      style="height: 100px"
-                    ></textarea>
-                  </div>
-                </div>
-                <!-- /input text note-->
-                <!-- promo code-->
-                <div class="col-12 mb-3">
-                  <label for="promo-code" class="form-label"
-                    >Codice Promozionale (opzionale)</label
-                  >
-                  <input type="name" class="form-control" id="promo-code" />
-                </div>
-                <!-- /promo code-->
-                <!-- privacy check-->
-                <div class="col-12 form-check mb-3">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="privacy-check"
-                  />
-                  <label class="form-check-label" for="privacy-check">
-                    Accetto la Privacy Policy
-                  </label>
-                </div>
-                <!-- /privacy check-->
-                <!-- submit button-->
-                <div class="col-12 col-md-6 text-center p-4">
-                  <button type="submit" class="btn btn-primary">
-                    Calcola preventivo
-                  </button>
-                </div>
-                <!-- submit button-->
-                <!-- final price-->
-                <div class="col-12 col-md-6 text-center p-4 d-none">
-                  <h4>Prezzo finale</h4>
-                </div>
-                <!-- //final price-->
+            <form
+              id="preventive-form"
+              class="needs-validation row mb-5"
+              action=""
+              method="GET"
+            >
+              <!-- input name-->
+              <div class="col-12 mb-3">
+                <label for="name-input" class="form-label">Nome</label>
+                <input
+                  type="name"
+                  class="form-control"
+                  id="name-input"
+                  required
+                />
               </div>
+              <!-- /input name-->
+              <!-- input surname-->
+              <div class="col-12 mb-3">
+                <label for="surname-input" class="form-label">Cognome</label>
+                <input
+                  type="surname"
+                  class="form-control"
+                  id="surname-input"
+                  required
+                />
+              </div>
+              <!-- /input surname-->
+              <!-- input email-->
+              <div class="col-12 mb-3">
+                <label for="email-input" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email-input"
+                  required
+                />
+              </div>
+              <!-- /input email-->
+              <!-- input selection-->
+              <div class="col-12 mb-3">
+                <label for="selection-input" class="form-label" required
+                  >Tipo di Lavoro</label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="selection-input"
+                  required
+                >
+                  <option value="">Seleziona il tipo di lavoro</option>
+                  <option value="0">Backed Development</option>
+                  <option value="1">Frontend Development</option>
+                  <option value="2">Project Analysis</option>
+                </select>
+              </div>
+              <!-- /input selection-->
+              <!-- input text note-->
+              <div class="col-12 mb-3">
+                <label for="text-area" class="form-label" required
+                  >Inserisci Note</label
+                >
+                <div class="form-floating mb-3">
+                  <textarea
+                    class="form-control"
+                    placeholder="Leave a comment here"
+                    id="text-area"
+                    style="height: 100px"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <!-- /input text note-->
+              <!-- promo code-->
+              <div class="col-12 mb-3">
+                <label for="promo-code" class="form-label"
+                  >Codice Promozionale (opzionale)</label
+                >
+                <input type="name" class="form-control" id="promo-code" />
+              </div>
+              <!-- /promo code-->
+              <!-- privacy check-->
+              <div class="col-12 form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="privacy-check"
+                  required
+                />
+                <label class="form-check-label" for="privacy-check" required>
+                  Accetto la Privacy Policy
+                </label>
+              </div>
+              <!-- /privacy check-->
+              <!-- submit button-->
+              <div class="col-12 col-md-6 text-center p-4">
+                <button type="submit" class="btn btn-primary">
+                  Calcola preventivo
+                </button>
+              </div>
+              <!-- submit button-->
+              <!-- final price-->
+              <div class="col-12 col-md-6 text-center p-4 d-none">
+                <h4>Prezzo finale</h4>
+              </div>
+              <!-- //final price-->
             </form>
             <!-- /form -->
           </div>
