@@ -61,4 +61,8 @@ form.addEventListener("submit", (event) => {
   priceFloatsUI.style.color = "grey";
 });
 
-//bonus
+// ## bonus ##
+// Prova a generare dinamicamente le opzioni della select a partire da un oggetto js.
+selection.item(1).innerHTML = "Braciolaro professioniista";
+selection.item(2).innerHTML = "Lanciatore di corriandoli";
+selection.item(3).innerHTML = "Barbra Streisand, uhuhuhuhuhuhu";
