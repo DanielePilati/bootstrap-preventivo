@@ -46,12 +46,19 @@ form.addEventListener("submit", (event) => {
   }
   //visualizzo il div del prezzo nel documento html
   priceBanner.classList.remove("d-none");
-  // individuo i numeri interi e decimali
-  let ints = finalPrice.toString().slice(0, finalPrice.toString().length - 3);
-  let floats = finalPrice.toString().slice(finalPrice.toString().length - 2);
+
   //stampo il prezzo e il simbolo dell’euro
-  priceIntUI.innerHTML = `€ ` + ints + `,`;
-  priceFloatsUI.innerHTML = floats;
+  //numeri interi
+  priceIntUI.innerHTML =
+    `€ ` +
+    finalPrice.toString().slice(0, finalPrice.toString().length - 3) +
+    `,`;
+  //numeri interinumeri decimali
+  priceFloatsUI.innerHTML = finalPrice
+    .toString()
+    .slice(finalPrice.toString().length - 2);
   //i numeri decimali sono grigi
   priceFloatsUI.style.color = "grey";
 });
+
+//bonus
