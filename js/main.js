@@ -11,7 +11,7 @@ const workTime = 10;
 // se la commissione riguarda lo sviluppo backend il prezzo orario è di 20.50€/l’ora
 // se la commissione riguarda lo sviluppo frontend il prezzo orario è di 15.30€/l’ora
 // se la commissione riguarda l’analisi progettuale il prezzo orario è di 33.60€/l’ora
-const rate = [20.5, 15.3, 33.6];
+//const rate = [20.5, 15.3, 33.6];
 //L’utente potrebbe decidere di utilizzare un codice promozionale tra i seguenti: YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24.
 const validCodes = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 const userCode = document.querySelector("#promo-code");
@@ -29,7 +29,9 @@ const wrongCode = document.querySelector("#wrong-code");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
-  let finalPrice = (workTime * rate[selection.value]).toFixed(2);
+  let finalPrice = (workTime * selectionObject[selection.value].rate).toFixed(
+    2
+  );
   //Se l’utente ha inserito un codice promozionale
   if (userCode.value !== "") {
     //Se l’utente inserisce un codice promozionale valido
@@ -63,6 +65,21 @@ form.addEventListener("submit", (event) => {
 
 // ## bonus ##
 // Prova a generare dinamicamente le opzioni della select a partire da un oggetto js.
-selection.item(1).innerHTML = "Braciolaro professioniista";
-selection.item(2).innerHTML = "Lanciatore di corriandoli";
-selection.item(3).innerHTML = "Barbra Streisand, uhuhuhuhuhuhu";
+const selectionObject = [
+  {
+    name: "Backed Development",
+    rate: 20.5,
+  },
+  {
+    name: "Frontend Development",
+    rate: 15.3,
+  },
+  {
+    name: "Project Analysis",
+    rate: 33.6,
+  },
+];
+
+selection.item(1).innerHTML = selectionObject[0].name;
+selection.item(2).innerHTML = selectionObject[1].name;
+selection.item(3).innerHTML = selectionObject[2].name;
