@@ -50,7 +50,7 @@ form.addEventListener("submit", (event) => {
   let ints = finalPrice.toString().slice(0, finalPrice.toString().length - 3);
   let floats = finalPrice.toString().slice(finalPrice.toString().length - 2);
   //stampo il prezzo e il simbolo dell’euro
-  priceIntUI.innerHTML = ints + `,`;
+  priceIntUI.innerHTML = `€ ` ints + `,`;
   priceFloatsUI.innerHTML = floats;
   //i numeri decimali sono grigi
   priceFloatsUI.style.color = "grey";
