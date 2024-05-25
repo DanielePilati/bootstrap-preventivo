@@ -29,16 +29,13 @@ const wrongCode = document.querySelector("#wrong-code");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
-  let finalPrice = (workTime * selectionObject[selection.value].rate).toFixed(
-    2
-  );
+  let finalPrice = workTime * selectionObject[selection.value].rate;
   //Se l’utente ha inserito un codice promozionale
   if (userCode.value !== "") {
     //Se l’utente inserisce un codice promozionale valido
     if (validCodes.includes(userCode.value)) {
       // ha diritto ad uno sconto del 25% sul prezzo finale.
-      finalPrice -= ((25 * finalPrice) / 100).toFixed(2); //con 2 decimali
-      console.log(finalPrice);
+      finalPrice -= (25 * finalPrice) / 100;
       //Se il codice inserito non è valido,
     } else {
       //il sito deve informare l’utente che il codice non è valido.
@@ -48,7 +45,8 @@ form.addEventListener("submit", (event) => {
   }
   //visualizzo il div del prezzo nel documento html
   priceBanner.classList.remove("d-none");
-
+  //trasformo il prezzo in una stringa con due decimali
+  finalPrice = finalPrice.toFixed(2);
   //stampo il prezzo e il simbolo dell’euro
   //numeri interi
   priceIntUI.innerHTML =
