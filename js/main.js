@@ -65,6 +65,7 @@ form.addEventListener("submit", (event) => {
 
 // ## bonus ##
 // Prova a generare dinamicamente le opzioni della select a partire da un oggetto js.
+// creo un oggetto con i tipi di lavoro e la tariffa associata
 const selectionObject = [
   {
     name: "Backed Development",
@@ -79,7 +80,7 @@ const selectionObject = [
     rate: 33.6,
   },
 ];
-
-selection.item(1).innerHTML = selectionObject[0].name;
-selection.item(2).innerHTML = selectionObject[1].name;
-selection.item(3).innerHTML = selectionObject[2].name;
+//inserisco il nome del lavoro nella section
+for (let i = 0; i < selectionObject.length; i++) {
+  selection.item(i + 1).innerHTML = selectionObject[i].name;
+}
