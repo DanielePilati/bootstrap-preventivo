@@ -53,7 +53,7 @@ form.addEventListener("submit", (event) => {
     `€ ` +
     finalPrice.toString().slice(0, finalPrice.toString().length - 3) +
     `,`;
-  //numeri interinumeri decimali
+  //numeri decimali
   priceFloatsUI.innerHTML = finalPrice
     .toString()
     .slice(finalPrice.toString().length - 2);
