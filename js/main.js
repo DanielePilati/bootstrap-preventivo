@@ -11,7 +11,7 @@ const workTime = 10;
 // se la commissione riguarda lo sviluppo backend il prezzo orario è di 20.50€/l’ora
 // se la commissione riguarda lo sviluppo frontend il prezzo orario è di 15.30€/l’ora
 // se la commissione riguarda l’analisi progettuale il prezzo orario è di 33.60€/l’ora
-//const rate = [20.5, 15.3, 33.6];
+// const rate = [20.5, 15.3, 33.6];
 //L’utente potrebbe decidere di utilizzare un codice promozionale tra i seguenti: YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24.
 const validCodes = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 const userCode = document.querySelector("#promo-code");
@@ -81,6 +81,6 @@ const selectionObject = [
   },
 ];
 //inserisco il nome del lavoro nella section
-for (let i = 0; i < selectionObject.length; i++) {
+for (let i = 0; i < selection.options.length - 1; i++) {
   selection.item(i + 1).innerHTML = selectionObject[i].name;
 }
