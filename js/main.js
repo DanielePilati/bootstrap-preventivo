@@ -74,6 +74,6 @@ const selectionObject = [
   },
 ];
 //inserisco il nome del lavoro nella selection
-for (let i = 0; i < selection.options.length - 1; i++) {
-  selection.item(i + 1).innerHTML = selectionObject[i].name;
-}
+selectionObject.forEach((element, index) => {
+  selection.item(index + 1).innerHTML = element.name;
+});
