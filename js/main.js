@@ -59,7 +59,7 @@ form.addEventListener("submit", (event) => {
 
 // ## bonus ##
 // Prova a generare dinamicamente le opzioni della select a partire da un oggetto js.
-// creo un oggetto con i tipi di lavoro e la tariffa associata
+// creo un array di oggetti contenenti i tipi di lavoro e la tariffa associata
 const selectionObject = [
   {
     name: "Backed Development",
