@@ -29,6 +29,8 @@ const wrongCode = document.querySelector("#wrong-code");
 form.addEventListener("submit", (event) => {
   //prevengo il comportamento di default del browser
   event.preventDefault();
+  //resetto il messaggio "codice non valido"
+  wrongCode.innerHTML = "";
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
   let finalPrice = workTime * selectionObject[selection.value].rate;
   //Se l’utente ha inserito un codice promozionale
@@ -41,7 +43,7 @@ form.addEventListener("submit", (event) => {
     } else {
       //il sito deve informare l’utente che il codice non è valido.
       wrongCode.innerHTML = `il codice "${userCode.value}" non è valido`;
-      //il prezzo finale viene visualizzato senza applicare sconti
+      // visualizzo il messaggo in rosso per attirare l'attenzione dell'utente
     }
   }
   //visualizzo il div del prezzo nel documento html
@@ -53,8 +55,6 @@ form.addEventListener("submit", (event) => {
   priceIntUI.innerHTML = `€ ` + finalPrice.slice(0, finalPrice.length - 3);
   //numeri decimali
   priceFloatsUI.innerHTML = `,` + finalPrice.slice(finalPrice.length - 2);
-  //i numeri decimali sono grigi
-  priceFloatsUI.style.color = "grey";
 });
 
 // ## bonus ##

@@ -147,7 +147,7 @@
                   >Codice Promozionale (opzionale)</label
                 >
                 <input type="name" class="form-control" id="promo-code" />
-                <div class="form-text" id="wrong-code"></div>
+                <div class="form-text text-danger" id="wrong-code"></div>
               </div>
               <!-- /promo code-->
               <!-- privacy check-->
@@ -177,8 +177,11 @@
                 class="col-12 col-md-6 text-center p-4 d-none"
               >
                 <h4>Prezzo finale</h4>
-                <h3 class="d-inline" id="price-int"></h3>
-                <h4 class="d-inline" id="price-floats"></h4>
+                <span class="d-inline fs-3" id="price-int"></span>
+                <span
+                  class="d-inline fs-4 text-body-tertiary"
+                  id="price-floats"
+                ></span>
               </div>
               <!-- //final price-->
             </form>
