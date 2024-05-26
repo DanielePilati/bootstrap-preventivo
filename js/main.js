@@ -49,10 +49,9 @@ form.addEventListener("submit", (event) => {
   finalPrice = finalPrice.toFixed(2);
   //stampo il prezzo e il simbolo dell’euro
   //numeri interi
-  priceIntUI.innerHTML =
-    `€ ` + finalPrice.slice(0, finalPrice.length - 3) + `,`;
+  priceIntUI.innerHTML = `€ ` + finalPrice.slice(0, finalPrice.length - 3);
   //numeri decimali
-  priceFloatsUI.innerHTML = finalPrice.slice(finalPrice.length - 2);
+  priceFloatsUI.innerHTML = `,` + finalPrice.slice(finalPrice.length - 2);
   //i numeri decimali sono grigi
   priceFloatsUI.style.color = "grey";
 });
@@ -74,7 +73,7 @@ const selectionObject = [
     rate: 33.6,
   },
 ];
-//inserisco il nome del lavoro nella section
+//inserisco il nome del lavoro nella selection
 for (let i = 0; i < selection.options.length - 1; i++) {
   selection.item(i + 1).innerHTML = selectionObject[i].name;
 }
