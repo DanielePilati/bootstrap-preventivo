@@ -27,6 +27,7 @@ const wrongCode = document.querySelector("#wrong-code");
 
 // creo un listner che esegue una funzione qundo viene premuto il bottone
 form.addEventListener("submit", (event) => {
+  //prevengo il comportamento di default del browser
   event.preventDefault();
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
   let finalPrice = workTime * selectionObject[selection.value].rate;
