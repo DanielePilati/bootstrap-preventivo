@@ -32,7 +32,7 @@ form.addEventListener("submit", (event) => {
   //resetto il messaggio "codice non valido"
   wrongCode.innerHTML = "";
   //Il prezzo finale è dato dal numero di ore per prezzo orario.
-  let finalPrice = workTime * selectionObject[selection.value].rate;
+  let finalPrice = workTime * selectionObject[selection.value - 1].rate;
   //Se l’utente ha inserito un codice promozionale
   if (userCode.value !== "") {
     //Se l’utente inserisce un codice promozionale valido
@@ -74,7 +74,12 @@ const selectionObject = [
     rate: 33.6,
   },
 ];
-//inserisco il nome del lavoro nella selection
-selectionObject.forEach((element, index) => {
-  selection.item(index + 1).innerHTML = element.name;
-});
+//creo una funzione che generi un tag <option> nella <select> con testo e valore dati in input
+function addOption(text, value) {
+  let option = document.createElement("option");
+  option.text = text;
+  option.value = value;
+  selection.add(option, selection[option.value]);
+}
+//creo una <option> per ogni oggetto nell'array
+selectionObject.forEach((element, index) => addOption(element.name, index + 1));
