@@ -81,5 +81,5 @@ function addOption(text, value) {
   option.value = value;
   selection.add(option, selection[option.value]);
 }
-//creo una <option> per ogni oggetto nell'array
+//creo una <option> per ogni oggetto nell'array richiamando la funzione addOption()
 selectionObject.forEach((element, index) => addOption(element.name, index + 1));
